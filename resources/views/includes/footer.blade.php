@@ -1,0 +1,1 @@
+<div class="py-3 border-top text-center">@ copyright {{ $year }}</div>

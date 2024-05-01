@@ -2,23 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\House;
 use Illuminate\Http\Request;
 
 class HouseController extends Controller
 {
     public function index()
     {
-        return 'Страница списка домов';
+        return view('houses.index', ['houses' => House::all()]);
     }
 
     public function create()
     {
-        return 'Страница создания дома';
+        return view('houses.create');
     }
 
     public function store(Request $request)
     {
-        return 'Запрос создания дома';
+        $validated = $request->validate([
+            'address' => ['required', 'string', 'max:255'],
+            'number_of_storeys' => ['required', 'integer', 'min:1'],
+            'number_of_apartments' => ['required', 'integer', 'min:1'],
+            'year_of_construction' => ['required',  'integer', 'between:1910,'.date('Y')],
+            'number_of_elevators' => ['required', 'integer', 'min:0'],
+        ]);
+
+        House::create($validated);
+
+        return redirect('/houses');
     }
 
     public function show(string $id)

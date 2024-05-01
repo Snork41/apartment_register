@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+main {
+    margin-top: 100px;
+}
+
+.nav-link.active {
+    font-weight: 600;
+}
+
+.required::after {
+    content: '*';
+    color: red;
+    margin-left: 5px;
+}
