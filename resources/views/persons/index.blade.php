@@ -4,7 +4,13 @@
 
 @section('content')
     
-<h1 class="mb-4">Люди</h1>
+<div class="row flex-nowrap align-items-center mb-4">
+    <h1 class="col-10">Люди</h1>
+    <a class="btn btn-light col-2" href="{{ route('persons.create') }}">
+        <img class="me-2" src="{{ asset('img/svg/person-add.svg') }}" alt="person-add">
+        Добавить человека
+    </a>
+</div>
 
 <table class="table table-hover">
     <thead>
@@ -15,6 +21,7 @@
         <th scope="col" class="text-center">Отчество</th>
         <th scope="col" class="text-center">Дата рождения</th>
         <th scope="col" class="text-center">Номер паспорта</th>
+        <th scope="col" class="text-center">Изменить/Удалить</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +33,10 @@
                 <td class="text-center">{{ $person['middle_name'] }}</td>
                 <td class="text-center">{{ $person['date_of_birth']->format('d.m.Y') }}</td>
                 <td class="text-center">{{ $person['number_of_pasport'] }}</td>
+                <td class="text-center">
+                    <a href="" class="mx-2"><img src="{{ asset('img/svg/person-fill-gear.svg') }}" alt="person-fill-gear"></a>
+                    <a href="" class="mx-2"><img src="{{ asset('img/svg/person-fill-slash.svg') }}" alt="person-fill-slash"></a>
+                </td>
             </tr>
         @endforeach
     </tbody>

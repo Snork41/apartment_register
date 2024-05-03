@@ -5,12 +5,13 @@
 @section('content')
 
 <div class="row flex-nowrap align-items-center mb-4">
-<h1 class="col-10">Дома</h1>
-<a class="btn btn-light col-2" href="{{ route('houses.create') }}">
-    <img class="me-2" src="{{ asset('img/svg/building-add.svg') }}" alt="building-add">
-    Добавить дом
-</a>
+    <h1 class="col-10">Дома</h1>
+    <a class="btn btn-light col-2" href="{{ route('houses.create') }}">
+        <img class="me-2" src="{{ asset('img/svg/building-add.svg') }}" alt="building-add">
+        Добавить дом
+    </a>
 </div>
+
 <table class="table table-hover">
     <thead>
         <tr>

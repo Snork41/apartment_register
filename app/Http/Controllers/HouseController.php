@@ -20,7 +20,7 @@ class HouseController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'address' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255', 'unique:houses,address'],
             'number_of_storeys' => ['required', 'integer', 'min:1'],
             'number_of_apartments' => ['required', 'integer', 'min:1'],
             'year_of_construction' => ['required',  'integer', 'between:1910,'.date('Y')],

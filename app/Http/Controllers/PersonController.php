@@ -14,12 +14,22 @@ class PersonController extends Controller
 
     public function create()
     {
-        return 'Страница создания Человека';
+        return view('persons.create');
     }
 
     public function store(Request $request)
     {
-        return 'Запрос создания Человека';
+        $validated = $request->validate([
+            'last_name' => ['required', 'string', 'max:100'],
+            'first_name' => ['required', 'string', 'max:100'],
+            'middle_name' => ['nullable', 'string', 'max:100'],
+            'date_of_birth' => ['required',  'date'],
+            'number_of_pasport' => ['required', 'integer', 'digits:10', 'unique:persons,number_of_pasport'],
+        ]);
+
+        Person::create($validated);
+
+        return redirect('/persons');
     }
 
     public function show(string $id)

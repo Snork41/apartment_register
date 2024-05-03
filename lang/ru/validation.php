@@ -152,10 +152,16 @@ return [
 
     'attributes' => [
         'address' => 'адрес',
-        'number_of_storeys' => 'количество этажей',
-        'number_of_apartments' => 'количество квартир',
-        'year_of_construction' => 'год постройки',
-        'number_of_elevators' => 'количество лифтов'
+        'number_of_storeys' => 'Количество этажей',
+        'number_of_apartments' => 'Количество квартир',
+        'year_of_construction' => 'Год постройки',
+        'number_of_elevators' => 'Количество лифтов',
+
+        'last_name' => 'Фамилия',
+        'first_name' => 'Имя',
+        'middle_name' => 'Отчество',
+        'date_of_birth' => 'Дата рождения',
+        'number_of_pasport' => 'Номер паспорта',
     ],
 
     'custom' => [
