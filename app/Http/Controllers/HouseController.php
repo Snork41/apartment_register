@@ -27,7 +27,7 @@ class HouseController extends Controller
             'number_of_elevators' => ['required', 'integer', 'min:0'],
         ]);
 
-        House::create($validated);
+        House::query()->create($validated);
 
         return redirect('/houses');
     }
@@ -39,7 +39,7 @@ class HouseController extends Controller
 
     public function edit(string $id)
     {
-        return "Запрос изменения дома c id $id";
+        return "Страница изменения дома c id $id";
     }
 
     public function update(Request $request, string $id)
@@ -49,6 +49,8 @@ class HouseController extends Controller
 
     public function destroy(string $id)
     {
-        return "Запрос удаления дома с id $id";
+        House::destroy($id);
+
+        return redirect('/houses');
     }
 }

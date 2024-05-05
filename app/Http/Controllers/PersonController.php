@@ -27,7 +27,7 @@ class PersonController extends Controller
             'number_of_pasport' => ['required', 'integer', 'digits:10', 'unique:persons,number_of_pasport'],
         ]);
 
-        Person::create($validated);
+        Person::query()->create($validated);
 
         return redirect('/persons');
     }

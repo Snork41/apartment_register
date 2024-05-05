@@ -34,8 +34,20 @@
                 <td class="text-center">{{ $house['year_of_construction'] }}</td>
                 <td class="text-center">{{ $house['number_of_elevators'] }}</td>
                 <td class="text-center">
-                    <a href="" class="mx-2"><img src="{{ asset('img/svg/building-fill-gear.svg') }}" alt="building-fill-gear"></a>
-                    <a href="" class="mx-2"><img src="{{ asset('img/svg/building-fill-slash.svg') }}" alt="building-fill-slash"></a>
+                    <div class="row">
+                        <a href="{{ route('houses.edit', ['house' => $house->id]) }}" class="col-6"><img src="{{ asset('img/svg/building-fill-gear.svg') }}" alt="building-fill-gear"></a>
+                        <form 
+                            action="{{ route('houses.destroy', ['house' => $house->id]) }}" 
+                            method="POST" 
+                            onsubmit="return confirm('Вы уверены, что хотите удалить этот дом?');"
+                            class="col-6">
+                            @csrf
+                            @method('DELETE')
+                            <button class="button-delete">
+                                <img src="{{ asset('img/svg/building-fill-slash.svg') }}" alt="building-fill-slash">
+                            </button>
+                        </form>
+                    </div>
                 </td>
             </tr>
         @endforeach

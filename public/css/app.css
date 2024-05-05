@@ -31,3 +31,8 @@ main {
     color: red;
     margin-left: 5px;
 }
+
+.button-delete {
+    border: 0;
+    background-color: unset;
+}
