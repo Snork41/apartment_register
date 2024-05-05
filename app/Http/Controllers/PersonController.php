@@ -39,7 +39,7 @@ class PersonController extends Controller
 
     public function edit(string $id)
     {
-        return "Запрос изменения Человека c id $id";
+        return "Страница изменения Человека c id $id";
     }
 
     public function update(Request $request, string $id)
@@ -49,6 +49,8 @@ class PersonController extends Controller
 
     public function destroy(string $id)
     {
-        return "Запрос удаления Человека с id $id";
+        Person::destroy($id);
+
+        return redirect('/persons');
     }
 }

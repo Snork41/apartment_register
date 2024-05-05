@@ -36,17 +36,13 @@
                 <td class="text-center">
                     <div class="row">
                         <a href="{{ route('houses.edit', ['house' => $house->id]) }}" class="col-6"><img src="{{ asset('img/svg/building-fill-gear.svg') }}" alt="building-fill-gear"></a>
-                        <form 
-                            action="{{ route('houses.destroy', ['house' => $house->id]) }}" 
-                            method="POST" 
-                            onsubmit="return confirm('Вы уверены, что хотите удалить этот дом?');"
-                            class="col-6">
-                            @csrf
-                            @method('DELETE')
-                            <button class="button-delete">
-                                <img src="{{ asset('img/svg/building-fill-slash.svg') }}" alt="building-fill-slash">
-                            </button>
-                        </form>
+                        <x-forms.delete
+                            :action-route="'houses.destroy'"
+                            :object="'house'"
+                            :object-id="$house->id"
+                            :confirm-message="'этот дом'"
+                            :button-image="'building-fill-slash.svg'"
+                        />
                     </div>
                 </td>
             </tr>

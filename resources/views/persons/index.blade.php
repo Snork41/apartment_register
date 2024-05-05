@@ -34,8 +34,16 @@
                 <td class="text-center">{{ $person['date_of_birth']->format('d.m.Y') }}</td>
                 <td class="text-center">{{ $person['number_of_pasport'] }}</td>
                 <td class="text-center">
-                    <a href="" class="mx-2"><img src="{{ asset('img/svg/person-fill-gear.svg') }}" alt="person-fill-gear"></a>
-                    <a href="" class="mx-2"><img src="{{ asset('img/svg/person-fill-slash.svg') }}" alt="person-fill-slash"></a>
+                    <div class="row">
+                        <a href="{{ route('persons.edit', ['person' => $person->id]) }}" class="col-6"><img src="{{ asset('img/svg/person-fill-gear.svg') }}" alt="person-fill-gear"></a>
+                        <x-forms.delete
+                            :action-route="'persons.destroy'"
+                            :object="'person'"
+                            :object-id="$person->id"
+                            :confirm-message="'этого человека'"
+                            :button-image="'person-fill-slash.svg'"
+                        />
+                    </div>
                 </td>
             </tr>
         @endforeach
